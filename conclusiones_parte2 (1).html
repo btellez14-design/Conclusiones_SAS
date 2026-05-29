@@ -1,83 +1,179 @@
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Conclusiones Parte 2 · Airbnb NYC 2019</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
-  .dot{width:10px;height:10px;border-radius:50%;background:#FF5A5F;flex-shrink:0}
-  .sec-lbl{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-secondary);margin:20px 0 8px}
-  .card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px}
-  .ctbar{width:3px;height:14px;background:#FF5A5F;border-radius:2px;flex-shrink:0}
-  table.bt{width:100%;border-collapse:collapse;margin-top:6px}
-  table.bt th{font-size:11px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--color-text-secondary);padding:0 0 7px;text-align:left;border-bottom:.5px solid var(--color-border-tertiary)}
-  table.bt td{font-size:12px;color:var(--color-text-primary);padding:6px 0;border-bottom:.5px solid var(--color-border-tertiary)}
-  table.bt td:last-child{text-align:right}
-  .bg{background:#E1F5EE;color:#0F6E56;font-size:11px;font-weight:500;border-radius:4px;padding:2px 8px}
-  .br{background:#FAECE7;color:#993C1D;font-size:11px;font-weight:500;border-radius:4px;padding:2px 8px}
-  .recs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0}
-  .rec{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px;border-top:3px solid var(--rc)}
-  .rec-lbl{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--rc);margin-bottom:6px}
-  .nota{background:#FFFDF0;border:.5px solid var(--color-border-tertiary);border-left:3px solid #BA7517;border-radius:0 8px 8px 0;padding:10px 14px;font-size:11px;color:var(--color-text-secondary);line-height:1.6;margin:12px 0}
-  .cierre{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px 24px;text-align:center;margin-top:4px}
-  .cierre blockquote{font-size:13px;font-style:italic;color:var(--color-text-primary);max-width:580px;margin:0 auto 6px;line-height:1.7}
-  .cierre .cfoot{font-size:11px;color:var(--color-text-secondary)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Inter',sans-serif;
+  background:#f7f7f7;
+  color:#222;
+  font-size:12px;
+  line-height:1.4;
+  padding:20px;
+  min-height:100vh;
+}
+
+.page{
+  max-width:960px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+/* TÍTULO */
+.page-title{display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;background:#FF5A5F;flex-shrink:0}
+.page-title h1{font-size:14px;font-weight:600;color:#222}
+.page-title span{font-size:12px;color:#aaa}
+
+/* LABEL */
+.sec-lbl{
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  color:#aaa;
+}
+
+/* OPP ROW */
+.opp-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:640px){.opp-row{grid-template-columns:1fr}}
+
+.card{background:#fff;border:1px solid #e8e8e8;border-radius:8px;padding:14px 16px}
+.card-title{display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.ctbar{width:3px;height:13px;background:#FF5A5F;border-radius:2px;flex-shrink:0}
+.card-title h3{font-size:12px;font-weight:600;color:#222}
+.card p{font-size:11px;color:#888;line-height:1.65}
+.card p strong{color:#444;font-weight:600}
+
+/* TABLE */
+table.bt{width:100%;border-collapse:collapse;margin-top:4px}
+table.bt th{
+  font-size:9px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;color:#bbb;
+  padding:0 0 7px;text-align:left;
+  border-bottom:1px solid #f0f0f0
+}
+table.bt td{
+  font-size:10px;color:#555;
+  padding:6px 0;
+  border-bottom:1px solid #f7f7f7
+}
+table.bt td:last-child{text-align:right}
+.bg{background:#E1F5EE;color:#0F6E56;font-size:9px;font-weight:600;border-radius:3px;padding:2px 6px}
+.br{background:#FFF0F0;color:#FF5A5F;font-size:9px;font-weight:600;border-radius:3px;padding:2px 6px}
+
+/* RECS */
+.recs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:640px){.recs{grid-template-columns:1fr}}
+
+.rec{
+  background:#fff;
+  border:1px solid #e8e8e8;
+  border-radius:8px;
+  padding:14px;
+  border-top:3px solid var(--rc);
+}
+.rec-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--rc);margin-bottom:6px}
+.rec h3{font-size:11px;font-weight:600;color:#222;margin-bottom:5px}
+.rec p{font-size:10px;color:#888;line-height:1.55}
+
+/* NOTA */
+.nota{
+  background:#FFFDF0;
+  border:1px solid #EDD96A;
+  border-left:3px solid #BA7517;
+  border-radius:0 6px 6px 0;
+  padding:10px 14px;
+  font-size:10px;
+  color:#5C3A00;
+  line-height:1.6;
+}
+.nota strong{font-weight:600}
+
+/* CIERRE */
+.cierre{
+  background:#fff;
+  border:1px solid #e8e8e8;
+  border-radius:8px;
+  padding:16px 24px;
+  text-align:center;
+}
+.cierre blockquote{
+  font-size:13px;
+  font-style:italic;
+  color:#444;
+  max-width:580px;
+  margin:0 auto 8px;
+  line-height:1.7;
+}
+.cierre blockquote em{color:#FF5A5F;font-style:normal;font-weight:600}
+.cierre .cfoot{font-size:9px;color:#bbb}
 </style>
+</head>
+<body>
+<div class="page">
 
-<h2 class="sr-only">Oportunidad y propuesta de negocio — Airbnb Nueva York 2019</h2>
+  <div class="page-title">
+    <div class="dot"></div>
+    <h1>Oportunidad y propuesta de negocio</h1>
+    <span>Airbnb · Nueva York 2019</span>
+  </div>
 
-<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-  <div class="dot"></div>
-  <span style="font-size:14px;font-weight:500;color:var(--color-text-primary)">Oportunidad y propuesta de negocio</span>
-  <span style="font-size:12px;color:var(--color-text-secondary)">Airbnb · Nueva York 2019</span>
-</div>
-
-<div class="sec-lbl">La oportunidad periférica</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-  <div class="card">
-    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-      <div class="ctbar"></div>
-      <span style="font-size:13px;font-weight:500;color:var(--color-text-primary)">Demanda latente sin oferta suficiente</span>
+  <div class="sec-lbl">La oportunidad periférica</div>
+  <div class="opp-row">
+    <div class="card">
+      <div class="card-title"><div class="ctbar"></div><h3>Demanda latente sin oferta suficiente</h3></div>
+      <p>El <strong>Bronx</strong> tiene 1,090 listados para 1.4 millones de habitantes y genera <strong>$17,453 por listado/año</strong>. La ocupación baja no es falta de demanda — es falta de oferta. Cuando no hay dónde quedarse, los viajeros no consideran esa zona.<br/><br/><strong>Brooklyn</strong> demuestra el principio inverso: $633M de ingreso con precio promedio de $124, logrando <strong>$32,930 por listado</strong> gracias a ocupación sólida. Si se añade oferta en zonas periféricas, la ocupación sube antes de que el precio baje.</p>
     </div>
-    <p style="font-size:12px;color:var(--color-text-secondary);line-height:1.65">El <strong style="color:var(--color-text-primary)">Bronx</strong> tiene 1,090 listados para 1.4 millones de habitantes y genera <strong style="color:var(--color-text-primary)">$17,453 por listado/año</strong>. La ocupación baja no es falta de demanda — es falta de oferta. Cuando no hay dónde quedarse, los viajeros no consideran esa zona.<br/><br/><strong style="color:var(--color-text-primary)">Brooklyn</strong> demuestra el principio inverso: $633M de ingreso con precio promedio de $124, logrando <strong style="color:var(--color-text-primary)">$32,930 por listado</strong> gracias a ocupación sólida.</p>
-  </div>
-  <div class="card">
-    <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-      <div class="ctbar"></div>
-      <span style="font-size:13px;font-weight:500;color:var(--color-text-primary)">Barrios con mayor señal de demanda insatisfecha</span>
+    <div class="card">
+      <div class="card-title"><div class="ctbar"></div><h3>Barrios con mayor señal de demanda insatisfecha</h3></div>
+      <table class="bt">
+        <thead><tr><th>Barrio</th><th>Zona</th><th>Listados</th><th>Reseñas/mes</th></tr></thead>
+        <tbody>
+          <tr><td>East Elmhurst</td><td>Queens</td><td>185</td><td><span class="bg">4.46</span></td></tr>
+          <tr><td>Springfield Gardens</td><td>Queens</td><td>85</td><td><span class="bg">4.19</span></td></tr>
+          <tr><td>Schuylerville</td><td>Bronx</td><td>13</td><td><span class="bg">3.16</span></td></tr>
+          <tr><td>South Ozone Park</td><td>Queens</td><td>40</td><td><span class="bg">3.02</span></td></tr>
+          <tr><td>Manhattan (referencia)</td><td>—</td><td>21,660</td><td><span class="br">0.98</span></td></tr>
+        </tbody>
+      </table>
     </div>
-    <table class="bt">
-      <thead><tr><th>Barrio</th><th>Zona</th><th>Listados</th><th>Reseñas/mes</th></tr></thead>
-      <tbody>
-        <tr><td>East Elmhurst</td><td>Queens</td><td>185</td><td><span class="bg">4.46</span></td></tr>
-        <tr><td>Springfield Gardens</td><td>Queens</td><td>85</td><td><span class="bg">4.19</span></td></tr>
-        <tr><td>Schuylerville</td><td>Bronx</td><td>13</td><td><span class="bg">3.16</span></td></tr>
-        <tr><td>South Ozone Park</td><td>Queens</td><td>40</td><td><span class="bg">3.02</span></td></tr>
-        <tr><td>Manhattan (referencia)</td><td>—</td><td>21,660</td><td><span class="br">0.98</span></td></tr>
-      </tbody>
-    </table>
   </div>
-</div>
 
-<div class="sec-lbl">Programa "Nuevas Zonas NYC" · Tres pilares</div>
-<div class="recs">
-  <div class="rec" style="--rc:#FF5A5F">
-    <div class="rec-lbl">Pilar 1</div>
-    <p style="font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px">Zonas prioritarias por datos</p>
-    <p style="font-size:12px;color:var(--color-text-secondary);line-height:1.55">East Elmhurst, Springfield Gardens, Schuylerville y South Ozone Park: alta rotación de reseñas y muy poca oferta. Expansión dirigida, no a ciegas.</p>
+  <div class="sec-lbl">Programa "Nuevas Zonas NYC" · Tres pilares</div>
+  <div class="recs">
+    <div class="rec" style="--rc:#FF5A5F">
+      <div class="rec-lbl">Pilar 1</div>
+      <h3>Zonas prioritarias por datos</h3>
+      <p>East Elmhurst, Springfield Gardens, Schuylerville y South Ozone Park: alta rotación de reseñas y muy poca oferta. Expansión dirigida, no a ciegas.</p>
+    </div>
+    <div class="rec" style="--rc:#1D9E75">
+      <div class="rec-lbl">Pilar 2</div>
+      <h3>Incentivos de incorporación</h3>
+      <p>Comisión reducida 6 meses · Kit digital de inicio (fotografía, precios, perfil) · Garantía de ingreso mínimo 60 días para eliminar la incertidumbre del anfitrión nuevo.</p>
+    </div>
+    <div class="rec" style="--rc:#185FA5">
+      <div class="rec-lbl">Pilar 3</div>
+      <h3>Precio dinámico preconfigurado</h3>
+      <p>Rango óptimo por ocupación real: Bronx $70–100/noche · Queens periférico $80–110/noche. Preconfigurarlo reduce la fricción de entrada para nuevos anfitriones.</p>
+    </div>
   </div>
-  <div class="rec" style="--rc:#1D9E75">
-    <div class="rec-lbl">Pilar 2</div>
-    <p style="font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px">Incentivos de incorporación</p>
-    <p style="font-size:12px;color:var(--color-text-secondary);line-height:1.55">Comisión reducida 6 meses · Kit digital de inicio (fotografía, precios, perfil) · Garantía de ingreso mínimo 60 días para eliminar la incertidumbre del anfitrión nuevo.</p>
-  </div>
-  <div class="rec" style="--rc:#185FA5">
-    <div class="rec-lbl">Pilar 3</div>
-    <p style="font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px">Precio dinámico preconfigurado</p>
-    <p style="font-size:12px;color:var(--color-text-secondary);line-height:1.55">Rango óptimo por ocupación real: Bronx $70–100/noche · Queens periférico $80–110/noche. Preconfigurarlo reduce la fricción de entrada para nuevos anfitriones.</p>
-  </div>
-</div>
 
-<div class="nota">
-  <strong style="color:var(--color-text-primary)">Nota de transparencia:</strong> Datos 2019 · Fuente: Kaggle / Inside Airbnb · Licencia CC BY 4.0. Datos históricos, no representan el mercado actual. Ingreso estimado = price × [(365 − availability_365) / 365] × 365. Listados sin reseñas excluidos del cálculo de reviews_per_month. La propuesta requiere validación con datos actuales.
-</div>
+  <div class="nota">
+    <strong>Nota de transparencia:</strong> Datos 2019 · Fuente: Kaggle / Inside Airbnb · Licencia CC BY 4.0. Datos históricos, no representan el mercado actual. Ingreso estimado = price × [(365 − availability_365) / 365] × 365. Listados sin reseñas excluidos del cálculo de reviews_per_month y documentados. La propuesta requiere validación con datos actuales.
+  </div>
 
-<div class="cierre">
-  <blockquote>"El mercado de Airbnb en Nueva York no está saturado — está <em style="color:#FF5A5F;font-style:normal;font-weight:500">mal distribuido</em>. Y eso es una oportunidad de crecimiento <em style="color:#FF5A5F;font-style:normal;font-weight:500">sin necesidad de quitarle mercado a nadie</em>."</blockquote>
-  <div class="cfoot">SAS Visual Analytics · SAS Viya · 48,884 listados · 16 variables · NYC 2019</div>
+  <div class="cierre">
+    <blockquote>"El mercado de Airbnb en Nueva York no está saturado — está <em>mal distribuido</em>. Y eso es una oportunidad de crecimiento <em>sin necesidad de quitarle mercado a nadie</em>."</blockquote>
+    <div class="cfoot">SAS Visual Analytics · SAS Viya · 48,884 listados · 16 variables · NYC 2019</div>
+  </div>
+
 </div>
+</body>
+</html>
